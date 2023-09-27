@@ -25,7 +25,18 @@ $studentGrades = [
 function printAverageGrade($studentRecords)
 {
     foreach ($studentRecords as $key => $record) {
-        echo "{$key}'s average grade is " . array_sum($record) / count($record) . "\n";
+        $avgMarks = array_sum($record) / count($record);
+        if ($avgMarks <= 30) {
+            echo "{$key}'s average grade is F. \n";
+        } else if ($avgMarks > 30 && $avgMarks <= 40) {
+            echo "{$key}'s average grade is D. \n";
+        } else if ($avgMarks > 40 && $avgMarks <= 60) {
+            echo "{$key}'s average grade is C. \n";
+        } else if ($avgMarks > 60 && $avgMarks < 80) {
+            echo "{$key}'s average grade is B. \n";
+        } else {
+            echo "{$key}'s average grade is A. \n";
+        }
     }
 }
 
